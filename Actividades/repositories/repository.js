@@ -1,5 +1,4 @@
 const cassandra = require('cassandra-driver');
-const uid = require('uuid');
 const Uuid = require('cassandra-driver').types.Uuid;
 const authProvider = new cassandra.auth.PlainTextAuthProvider(
     process.env.CASSANDRA_USER,
@@ -78,8 +77,14 @@ module.exports = class Repository {
 
     async GetAll(){
         const queryActivity = 'Select * from activity';
-        let queryList = client.execute(queryActivity, [], { prepare: true });
-        return queryList
+        let queryList = await client.execute(queryActivity, [], { prepare: true });
+        var rows = queryList.rows;
+        let values =  Object.values(rows);
+        for (var i=0; i<values.length; i++){
+            let value = values[i];
+            Object.keys(value).forEach(index => (!value[index] && value[index] !== undefined) && delete value[index]);
+        }
+        return rows
     }
 }
 
