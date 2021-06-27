@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "1f3657a7-3274-4424-a195-993fb9c7f84d",
+		"name": "BDNR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post photo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Sabelo\",\r\n    \"userid\": \"abce24524124\",\r\n    \"url\": \"data:image/jpeg;base64,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\",\r\n    \"comment\":\"why\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/activities/photo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"activities",
+						"photo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Publication",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Sabelo\",\r\n    \"userid\": \"abce24524124\",\r\n    \"text\": \"Que bueno que esta Pantheon\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/activities/publication",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"activities",
+						"publication"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/activities/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"activities",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Manual",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Sabelo\",\r\n    \"userid\": \"abce24524124\",\r\n    \"difficulty\": \"hard\",\r\n    \"duration\": 30,\r\n    \"distance\": 300,\r\n    \"photo\": \"hmm\",\r\n    \"description\": \"I just did 300 meters in 30 secods\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/activities/manual",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"activities",
+						"manual"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Automatic no Sensor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Bot\",\r\n    \"userid\": \"abce24524124\",\r\n    \"difficulty\": \"hard\",\r\n    \"duration\": 30,\r\n    \"distance\": 300,\r\n    \"location\": \"Uruguay\",\r\n    \"averagespeed\": 37\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/activities/automatic",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"activities",
+						"automatic"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
