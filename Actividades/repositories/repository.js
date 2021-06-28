@@ -71,7 +71,7 @@ module.exports = class Repository {
     
 
     async Get(data) {
-        let activity = await getActivity(data.activityid);
+        let activity = await getActivity(data);
         return activity;
     };
 
@@ -89,8 +89,9 @@ module.exports = class Repository {
 }
 
 async function getActivity(data) {
-    const query = 'SELECT * FROM activity WHERE activityid   = ?;';
-    const params = [data.activityid];
-    const result = await client.execute(query, params, { prepare: true });
+    const query = `SELECT * FROM activity WHERE date = '${data.date}' and activityid='${data.activityid}' ALLOW FILTERING;`;
+    const params = [data.date,data.activityid];
+    const result = await client.execute(query, [], { prepare: true });
+    Object.keys(result).forEach(index => (!result[index] && result[index] !== undefined) && delete result[index]);
     return result;
 }
