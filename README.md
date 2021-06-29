@@ -6,17 +6,19 @@ El siguiente proyecto fue creado con la finalidad de investigar bases de datos n
 A continuación se detalla una breve guía de como instalar y ejecutar los servicios de 'Actividades' y 'Registro y perfil de usuarios'.
 
 ### Pre requisitos 
-    - [Npm][1]
-    - [Mongodb][2]
-    - [Cassandra][3]
+Para poder realizar la correcta instalación de cada sistema es necesario contar previamente con la instalación de los siguientes items:
+
+[Npm](https://docs.npmjs.com/getting-started)\
+[Mongodb](https://docs.mongodb.com/manual/installation/)\
+[Cassandra](https://www.apache.org/dyn/closer.lua/cassandra/3.11.6/apache-cassandra-3.11.6-bin.tar.gz)
 
 [1]: https://docs.npmjs.com/getting-started
 [2]: https://docs.mongodb.com/manual/installation/
 [3]: https://www.apache.org/dyn/closer.lua/cassandra/3.11.6/apache-cassandra-3.11.6-bin.tar.gz
 
 ### Inicialización
-1. Crear un cluster de cassandra ([Ver cluser local de cassandra](https://aulas.ort.edu.uy/mod/page/view.php?id=327645))
-2. Iniciar cluster de cassandra
+1. Crear un cluster de Cassandra ([Ver cluster local de Cassandra](https://aulas.ort.edu.uy/mod/page/view.php?id=327645))
+2. Iniciar cluster de Cassandra
     ```
     cassandra -f
     ```
@@ -50,7 +52,7 @@ A continuación se detalla una breve guía de como instalar y ejecutar los servi
         Primary Key(userid,date, activityid)
     )WITH CLUSTERING ORDER BY (date DESC, activityId ASC);
     ```
-4. Se deben instalar las dependencias de ambos microservicios. Para esto realizamos:
+4. Se deben instalar las dependencias de ambos sistemas. Para esto realizamos:
     ```
     cd Actividades
     npm install
