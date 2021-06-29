@@ -12,7 +12,10 @@ exports.create = (req, res) => {
     // Create a user
     const user = new User({
         email: req.body.email, 
-        password: req.body.password
+        password: req.body.password,
+        privacy: req.body.privacy,
+        notification: req.body.notification,
+        profile: req.body.profile,
     });
 
     // Save user in the database
@@ -71,8 +74,11 @@ exports.update = (req, res) => {
 
     // Find user and update it with the request body
     User.findByIdAndUpdate(req.params.userId, {
-        email: req.body.email,
-        password: req.body.password
+        email: req.body.email, 
+        password: req.body.password,
+        privacy: req.body.privacy,
+        notification: req.body.notification,
+        profile: req.body.profile,      
     }, {new: true})
     .then(user => {
         if(!user) {
