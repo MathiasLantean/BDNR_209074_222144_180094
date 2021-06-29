@@ -62,7 +62,35 @@ exports.findOne = (req, res) => {
 
 // Update a user identified by the userId in the request
 exports.update = (req, res) => {
+    // Validate Request
+    if(!req.body) {
+        return res.status(400).send({
+            message: "User content can not be empty"
+        });
+    }
 
+    // Find user and update it with the request body
+    User.findByIdAndUpdate(req.params.userId, {
+        email: req.body.email,
+        password: req.body.password
+    }, {new: true})
+    .then(user => {
+        if(!user) {
+            return res.status(404).send({
+                message: "User not found with id " + req.params.userId
+            });
+        }
+        res.send(user);
+    }).catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "User not found with id " + req.params.userId
+            });                
+        }
+        return res.status(500).send({
+            message: "Error updating user with id " + req.params.userId
+        });
+    });
 };
 
 // Delete a user with the specified userId in the request
