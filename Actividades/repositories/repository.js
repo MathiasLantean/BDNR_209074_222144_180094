@@ -89,9 +89,9 @@ module.exports = class Repository {
 }
 
 async function getActivity(data) {
-    const query = `SELECT * FROM activity WHERE date = '${data.date}' and activityid='${data.activityid}' ALLOW FILTERING;`;
-    const params = [data.date,data.activityid];
-    const result = await client.execute(query, [], { prepare: true });
+    const query = `SELECT * FROM activity WHERE activityid=? ALLOW FILTERING;`;
+    const params = [data.activityid];
+    const result = await client.execute(query, params, { prepare: true });
     Object.keys(result).forEach(index => (!result[index] && result[index] !== undefined) && delete result[index]);
     return result;
 }
